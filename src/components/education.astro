@@ -1,0 +1,91 @@
+---
+interface Education {
+  title: string;
+  institution: string;
+  date: string;
+  description: string;
+}
+
+const education: Education[] = [
+  {
+    title: "Software Analysis and Development Technology",
+    institution: "SENA",
+    date: "Certified in October 2025",
+    description: "Training focused on the design, development, and maintenance of web and mobile systems, with expertise in databases, programming, and software engineering best practices."
+  },
+  {
+    title: "Business Administration Technician",
+    institution: "CENSA",
+    date: "Completed",
+    description: "Training focused on business management, planning, and leadership, strengthening organizational and decision-making skills applicable to the technological environment."
+  }
+];
+---
+
+<section
+  id="education"
+  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
+>
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My education</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8 flex items-center gap-3">
+      <span>🎓</span>
+      Education
+    </h3>
+
+    <div class="space-y-8">
+      {
+        education.map((edu) => (
+          <div class="group">
+            <div class="bg-[#1414149c] border border-[var(--white-icon-tr)] rounded-2xl p-6 md:p-8 hover:bg-[var(--white-icon-tr)] transition-all duration-300 hover:shadow-xl">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                <div class="flex-grow">
+                  <h4 class="text-xl md:text-2xl font-semibold text-[var(--white)] mb-2">
+                    {edu.title}
+                  </h4>
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                    <span class="text-[var(--sec)] font-medium text-lg">
+                      {edu.institution}
+                    </span>
+                    <span class="text-[var(--white-icon)] text-sm">
+                      {edu.date}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex-shrink-0">
+                  <div class="size-12 flex justify-center items-center text-[var(--sec)] border border-[var(--sec)] rounded-xl bg-[var(--sec)]/10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-6"
+                    >
+                      <path d="M12 3L1 9L12 15L21 12.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <p class="text-[var(--white-icon)] leading-relaxed">
+                {edu.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <!-- Botón de descarga de CV -->
+    <div class="mt-12 text-center">
+      <a 
+        href="/CV.pdf" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[var(--sec)] hover:bg-[var(--sec-dark)] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--sec)]"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+        Open my CV
+      </a>
+    </div>
+  </div>
+</section>

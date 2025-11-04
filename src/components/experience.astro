@@ -1,0 +1,297 @@
+---
+interface Project {
+  title: string;
+  type: string;
+  period: string;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  achievements: string[];
+}
+
+interface Experience {
+  title: string;
+  description: string;
+  highlights: string[];
+}
+
+const mainExperience: Experience = {
+  title: "Work Experience",
+  description: "During my training in the Software Analysis and Development program, I have gained practical experience in web systems development, applying theoretical knowledge to real-world projects.",
+  highlights: [
+    "Development of complete web systems from analysis to implementation",
+    "Application of MVC architecture principles and programming best practices",
+    "Experience in all phases of the software development lifecycle",
+    "Ability to work autonomously and deliver functional solutions"
+  ]
+};
+
+const projects: Project[] = [
+  {
+    title: "SystEcam",
+    type: "Training Project",
+    period: "Training Stage",
+    description: "Pharmacy management system developed during the training stage. I participated in the complete design and implementation of the system, strengthening my web development skills and understanding of complete systems.",
+    responsibilities: [
+      "Design and implementation of the management system",
+      "Development of intuitive user interfaces",
+      "Implementation of pharmaceutical management features",
+      "Database integration and business logic"
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    achievements: [
+      "Deep understanding of web systems functionality",
+      "Strengthening of fundamental web technology skills",
+      "Practical experience in management systems development"
+    ]
+  },
+  {
+    title: "ACTU",
+    type: "Internship - Productive Stage",
+    period: "6 months",
+    description: "Management and accounting system for churches developed using Laravel 12. I was responsible for all development phases, from requirements analysis to final testing.",
+    responsibilities: [
+      "Requirements analysis and information gathering",
+      "Complete database design",
+      "Application development using Laravel 12",
+      "Implementation of management and accounting features",
+      "Testing and quality control"
+    ],
+    technologies: ["Laravel 12", "PHP", "MySQL", "Blade Templates", "Eloquent ORM"],
+    achievements: [
+      "Autonomous development of a complete system",
+      "Implementation of MVC architecture",
+      "Version control implementation",
+      "Delivery of a functional and well-structured solution"
+    ]
+  }
+];
+
+const skills = [
+  // Technical Skills
+  "Frontend Development (HTML, CSS, JavaScript)",
+  "Backend Development (PHP, Laravel, Node.js)",
+  "Database Design & Management (MySQL, MongoDB)",
+  "Version Control (Git, GitHub)",
+  "Responsive Web Design",
+  "UI/UX Principles",
+  "Agile Methodologies",
+  
+  // Soft Skills
+  "Problem Solving",
+  "Team Collaboration",
+  "Time Management",
+  "Communication",
+  "Adaptability",
+  "Attention to Detail",
+  "Critical Thinking"
+];
+---
+
+<section id="experience" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        Professional <span class="text-[var(--sec)] shiny-sec">Experience</span>
+      </h2>
+      <p class="text-lg text-[var(--white-icon)] max-w-2xl mx-auto">
+        Practical experience in software development and project management
+      </p>
+    </div>
+
+    <!-- Main Experience Description -->
+    <div class="mb-16">
+      <div class="bg-[#1414149c] rounded-2xl p-8 border border-[var(--white-icon-tr)]">
+        <h3 class="text-2xl md:text-3xl font-semibold mb-6 text-center">
+          <span class="text-[var(--sec)]">Work Experience</span>
+        </h3>
+        <p class="text-[var(--white-icon)] text-lg leading-relaxed mb-6 text-center max-w-4xl mx-auto">
+          {mainExperience.description}
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          {mainExperience.highlights.map((highlight) => (
+            <div class="flex items-start">
+              <span class="text-[var(--sec)] mr-3 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                </svg>
+              </span>
+              <span class="text-[var(--white-icon)] text-sm leading-relaxed">{highlight}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="mb-16">
+      <h3 class="text-2xl md:text-3xl font-semibold mb-8 text-center">
+        Key <span class="text-[var(--sec)]">Projects</span>
+      </h3>
+      <div class="space-y-8">
+        {projects.map((project, index) => (
+          <div class="bg-[#1414149c] rounded-2xl p-6 border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <h4 class="text-2xl font-semibold text-[var(--white)] mr-3">{project.title}</h4>
+                  <span class={`px-3 py-1 rounded-full text-xs font-medium ${
+                    project.type.includes('Formativo') ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
+                    'bg-green-500/20 text-green-400 border border-green-500/30'
+                  }`}>
+                    {project.type}
+                  </span>
+                </div>
+                <p class="text-[var(--sec)] font-medium text-sm mb-2">{project.period}</p>
+              </div>
+            </div>
+            
+            <p class="text-[var(--white-icon)] mb-6 leading-relaxed">{project.description}</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h5 class="text-[var(--white)] font-medium mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-[var(--sec)]">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                  Responsibilities:
+                </h5>
+                <ul class="space-y-2">
+                  {project.responsibilities.map((resp) => (
+                    <li class="flex items-start text-sm text-[var(--white-icon)]">
+                      <span class="text-[var(--sec)] mr-2 mt-1">•</span>
+                      <span>{resp}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h5 class="text-[var(--white)] font-medium mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-[var(--sec)]">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                  Achievements:
+                </h5>
+                <ul class="space-y-2">
+                  {project.achievements.map((achievement) => (
+                    <li class="flex items-start text-sm text-[var(--white-icon)]">
+                      <span class="text-[var(--sec)] mr-2 mt-1">•</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            <div>
+              <h5 class="text-[var(--white)] font-medium mb-3 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-[var(--sec)]">
+                  <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66L14.212 3h2.128L9.788 21z"></path>
+                </svg>
+                Technologies used:
+              </h5>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => {
+                  // Definir colores específicos para cada tecnología
+                  const getTechStyle = (techName: string) => {
+                    const baseStyle = 'px-3 py-1 rounded-full text-xs font-medium border ';
+                    const tech = techName.toLowerCase();
+                    
+                    if (tech.includes('php')) {
+                      return baseStyle + 'bg-purple-500/20 text-purple-300 border-purple-500/30';
+                    } else if (tech.includes('html')) {
+                      return baseStyle + 'bg-orange-500/20 text-orange-300 border-orange-500/30';
+                    } else if (tech.includes('css')) {
+                      return baseStyle + 'bg-blue-500/20 text-blue-300 border-blue-500/30';
+                    } else if (tech.includes('javascript') || tech.includes('js')) {
+                      return baseStyle + 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30';
+                    } else if (tech.includes('mysql')) {
+                      return baseStyle + 'bg-blue-400/20 text-blue-200 border-blue-400/30';
+                    } else if (tech.includes('laravel')) {
+                      return baseStyle + 'bg-red-500/20 text-red-300 border-red-500/30';
+                    } else if (tech.includes('blade') || tech.includes('eloquent')) {
+                      return baseStyle + 'bg-red-400/20 text-red-200 border-red-400/30';
+                    } else {
+                      return baseStyle + 'bg-[var(--sec)]/20 text-white border-[var(--sec)]/30';
+                    }
+                  };
+                  
+                  return (
+                    <span class={getTechStyle(tech)}>
+                      {tech}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Skills Developed -->
+    <div class="mb-16">
+      <h3 class="text-2xl md:text-3xl font-semibold mb-8 text-center">
+        Technical <span class="text-[var(--sec)]">Skills</span>
+      </h3>
+      <div class="space-y-8">
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-[var(--sec)]">Technical Skills</h4>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.slice(0, 8).map((skill) => (
+              <div class="flex items-center p-3 bg-[#2a2a2a] rounded-lg border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-200">
+                <span class="text-[var(--sec)] mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                  </svg>
+                </span>
+                <span class="text-sm font-medium text-[var(--white)]">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-4 text-[var(--sec)]">Soft Skills</h4>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.slice(8).map((skill) => (
+              <div class="flex items-center p-3 bg-[#2a2a2a] rounded-lg border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-200">
+                <span class="text-[var(--sec)] mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                  </svg>
+                </span>
+                <span class="text-sm font-medium text-[var(--white)]">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="text-center">
+      <div class="bg-[#1414149c] rounded-2xl p-8 border border-[var(--white-icon-tr)]">
+        <h4 class="text-xl font-semibold mb-4">
+          Professional <span class="text-[var(--sec)]">Growth</span>
+        </h4>
+        <p class="text-[var(--white-icon)] mb-6 max-w-3xl mx-auto leading-relaxed">
+          These experiences have been fundamental for my growth as a developer, providing me with a comprehensive understanding of the software development lifecycle and a solid foundation for further professional development in the field of technology.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="px-4 py-2 bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full text-sm font-medium hover:bg-blue-500/30 transition-colors">
+            Full-Stack Development
+          </span>
+          <span class="px-4 py-2 bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-full text-sm font-medium hover:bg-purple-500/30 transition-colors">
+            Project Management
+          </span>
+          <span class="px-4 py-2 bg-green-500/20 text-green-300 border border-green-500/30 rounded-full text-sm font-medium hover:bg-green-500/30 transition-colors">
+            Independent Work
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
