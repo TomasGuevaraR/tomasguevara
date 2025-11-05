@@ -5,6 +5,8 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://tomasguevarar.github.io',
+  base: '/tomasguevara',
   integrations: [
     tailwind(),
     react()
@@ -17,7 +19,7 @@ export default defineConfig({
       },
     },
   },
-  output: "static",
+  output: 'static',
   build: {
     inlineStylesheets: "auto",
   },
