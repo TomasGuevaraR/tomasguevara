@@ -76,7 +76,7 @@ const education: Education[] = [
     <!-- Botón de descarga de CV -->
     <div class="mt-12 text-center">
       <a 
-        href="/CV.pdf" 
+        href={`${import.meta.env.BASE_URL}CV.pdf`} 
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[var(--sec)] hover:bg-[var(--sec-dark)] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--sec)]"
@@ -86,6 +86,7 @@ const education: Education[] = [
         </svg>
         Open my CV
       </a>
+
     </div>
   </div>
 </section>
