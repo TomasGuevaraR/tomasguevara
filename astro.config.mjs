@@ -5,8 +5,10 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tomasguevarar.github.io',
-  base: '/tomasguevara',
+  // 👇 Cambia "portafolio" por el nombre REAL de tu repositorio en GitHub
+  site: 'https://tomasguevarar.github.io/tomasguevara/',
+  base: '/tomasguevara/',
+  
   integrations: [
     tailwind(),
     react()
